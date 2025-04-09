@@ -12,7 +12,7 @@ const products = [
     { id: 6, category: "Chair", img: "url6" },
     { id: 7, category: "Sofa", img: "url7" },
     { id: 8, category: "Table", img: "url8" },
-    // Add more...
+    
 ];
 
 const ProductsFilter = () => {

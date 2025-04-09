@@ -18,7 +18,7 @@ export default function Header() {
           >
             <div className="flex-shrink-0 flex items-center">
               <motion.div 
-                className="bg-blue-600 text-white font-bold rounded-lg w-24 h-11 flex items-center text-center justify-center"
+                className=" text-black font-bold rounded-lg w-40 h-11 flex items-center text-center justify-center"
                 whileHover={{ 
                   scale: 1.1,
                   rotate: [0, -5, 5, -5, 0],
@@ -27,7 +27,7 @@ export default function Header() {
               >
                 Integrity Impex
               </motion.div>
-              <motion.span 
+              {/* <motion.span 
                 className="ml-3 text-xl font-semibold text-gray-900 hidden sm:block"
                 whileHover={{ 
                   x: [0, 2, -2, 2, 0],
@@ -35,7 +35,7 @@ export default function Header() {
                 }}
               >
                 AppCo
-              </motion.span>
+              </motion.span> */}
             </div>
           </motion.div>
 
