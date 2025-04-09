@@ -7,6 +7,7 @@ import AboutSection from './components/AboutSection'
 import ProductsFilter from './components/ProductsFilter'
 import TestimonialSection from './components/TestimonialSection'
 import BlogSection from './components/BlogSection'
+import Footer from './components/Footer'
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
       <ProductsFilter />
       <TestimonialSection />
       <BlogSection />
+      <Footer />
     </>
   )
 }
