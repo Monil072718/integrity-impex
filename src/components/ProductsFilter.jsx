@@ -1,19 +1,61 @@
 import { useState } from "react";
 import clsx from "clsx";
+// Chairs
+import char1 from '../assets/char1.jpg';
+import char2 from '../assets/char2.jpg';
+import char3 from '../assets/char3.jpg';
+import char4 from '../assets/char4.jpg';
+
+// Sofas
+import sofa1 from '../assets/sofa1.jpg';
+import sofa2 from '../assets/sofa2.jpg';
+import sofa3 from '../assets/sofa3.jpg';
+
+// Tables
+import table1 from '../assets/table1.jpg';
+import table2 from '../assets/table2.jpg';
+import table3 from '../assets/table3.jpg';
+import table4 from '../assets/table4.jpg';
+import table5 from '../assets/table5.jpg';
+
+// Light
+import light1 from '../assets/light1.jpeg';
+import light2 from '../assets/light2.jpeg';
+import light3 from '../assets/light3.jpeg';
+import light4 from '../assets/light4.jpeg';
+import light5 from '../assets/light5.jpeg';
+
+// decoration
+import decor1 from '../assets/decor1.jpeg';
+import decor2 from '../assets/decor2.jpeg';
 
 const categories = ["Chair", "Sofa", "Table", "Lighting", "Decoration"];
 
 const products = [
-    { id: 1, category: "Chair", img: "url1" },
-    { id: 2, category: "Chair", img: "url2" },
-    { id: 3, category: "Chair", img: "url3" },
-    { id: 4, category: "Chair", img: "url4" },
-    { id: 5, category: "Chair", img: "url5" },
-    { id: 6, category: "Chair", img: "url6" },
-    { id: 7, category: "Sofa", img: "url7" },
-    { id: 8, category: "Table", img: "url8" },
-    
+    { id: 1, category: "Chair", img: char1 },
+    { id: 2, category: "Chair", img: char2 },
+    { id: 3, category: "Chair", img: char3 },
+    { id: 4, category: "Chair", img: char4 },
+    { id: 5, category: "Chair", img: char1 },
+    { id: 6, category: "Chair", img: char2 },
+    { id: 7, category: "Sofa", img: sofa1 },
+    { id: 8, category: "Sofa", img: sofa2 },
+    { id: 9, category: "Sofa", img: sofa3 },
+    { id: 11, category: "Table", img: table1 },
+    { id: 12, category: "Table", img: table2 },
+    { id: 13, category: "Table", img: table3 },
+    { id: 14, category: "Table", img: table4 },
+    { id: 15, category: "Table", img: table5 },
+    { id: 16, category: "Lighting", img: light1 },
+    { id: 17, category: "Lighting", img: light2 },
+    { id: 18, category: "Lighting", img: light3 },
+    { id: 19, category: "Lighting", img: light4 },
+    { id: 20, category: "Lighting", img: light5 },
+    { id: 20, category: "Decoration", img: decor1 },
+    { id: 21, category: "Decoration", img: decor2 },
+
 ];
+
 
 const ProductsFilter = () => {
     const [selectedCategory, setSelectedCategory] = useState("Chair");
