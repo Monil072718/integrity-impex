@@ -6,7 +6,7 @@ import ServicesSection from './components/ServicesSection'
 import AboutSection from './components/AboutSection'
 import ProductsFilter from './components/ProductsFilter'
 import TestimonialSection from './components/TestimonialSection'
-import BlogSection from './components/BlogSection'
+import BlogSection from './assets/BlogSection'
 import Footer from './components/Footer'
 
 function App() {

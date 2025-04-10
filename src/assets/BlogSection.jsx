@@ -1,32 +1,34 @@
+import blogImg1 from '../assets/blog-img1.jpg';
+import blogImg2 from '../assets/blog-img2.jpg';
+import blogImg3 from '../assets/blog-img3.jpg';
+
 const blogData = [
-    {
-      id: 1,
-      category: "Uncategorized",
-      title: "Advantages and Disadvantages of Bed with Storage Design?",
-      description:
-        "When it comes to maximizing space in your bedroom, a bed with storage design can be a practical and efficient solution. These beds provide additional...",
-      image:
-        "https://yourdomain.com/image1.jpg", // replace with your image
-    },
-    {
-      id: 2,
-      category: "Uncategorized",
-      title: "Here’s How to Clean Your Wooden Furniture for Deepavali This Year!",
-      description:
-        "Deepavali, also known as Diwali, is a time of joy and celebration. As you prepare to welcome this auspicious festival, it’s important to ensure that...",
-      image:
-        "https://yourdomain.com/image2.jpg", // replace with your image
-    },
-    {
-      id: 3,
-      category: "Uncategorized",
-      title: "Best 6 ways to Décor your home and give a new fresh look.",
-      description:
-        "Your home is a reflection of your personality and style. By decorating your living space, you can create an inviting and visually appealing atmosphere that...",
-      image:
-        "https://yourdomain.com/image3.jpg", // replace with your image
-    },
-  ];
+  {
+    id: 1,
+    category: "Uncategorized",
+    title: "Advantages and Disadvantages of Bed with Storage Design?",
+    description:
+      "When it comes to maximizing space in your bedroom, a bed with storage design can be a practical and efficient solution. These beds provide additional...",
+    image: blogImg1,
+  },
+  {
+    id: 2,
+    category: "Uncategorized",
+    title: "Here’s How to Clean Your Wooden Furniture for Deepavali This Year!",
+    description:
+      "Deepavali, also known as Diwali, is a time of joy and celebration. As you prepare to welcome this auspicious festival, it’s important to ensure that...",
+    image: blogImg2,
+  },
+  {
+    id: 3,
+    category: "Uncategorized",
+    title: "Best 6 ways to Décor your home and give a new fresh look.",
+    description:
+      "Your home is a reflection of your personality and style. By decorating your living space, you can create an inviting and visually appealing atmosphere that...",
+    image: blogImg3,
+  },
+];
+
   
   const BlogSection = () => {
     return (

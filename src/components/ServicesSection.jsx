@@ -264,7 +264,7 @@ export default function ServicesSection() {
             <div className="container mx-auto">
                 <h2 className="text-center text-[2.5rem] text-[#8b4513] font-semibold mb-12">Our Services</h2>
 
-                <div className="grid grid-cols-5 gap-x-7 gap-y-12 
+                <div className="grid grid-cols-5 gap-y-12 
                       max-[1024px]:grid-cols-4 
                       max-[768px]:grid-cols-3 
                       max-[576px]:grid-cols-2 

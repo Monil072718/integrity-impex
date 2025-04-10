@@ -9,7 +9,7 @@ export default function AboutSection() {
         className="fixed inset-0 -z-10 bg-cover bg-center"
         style={{ backgroundImage: `url(${bgImage})` }}
       >
-        <div className="absolute inset-0 bg-black/50"></div>
+        <div className="absolute inset-0 "></div>
       </div>
 
       {/* Content overlay */}
@@ -29,9 +29,7 @@ export default function AboutSection() {
             <Button className="px-8 py-4 text-lg font-medium bg-blue-600 hover:bg-blue-700 transition-colors">
               Learn More
             </Button>
-            <Button variant="outline" className="px-8 py-4 text-lg font-medium text-white border-white hover:bg-white/10">
-              Meet the Team
-            </Button>
+            
           </div>
         </div>
       </div>

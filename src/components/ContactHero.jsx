@@ -44,16 +44,16 @@ export default function ContactHero() {
   >
       <div className="absolute inset-0 bg-black/50" />
 
-      <div className="relative max-w-screen-xl px-5 z-10">
-        <h1 className="text-5xl font-semibold mb-4 md:text-4xl">Welcome to Sourcing Made Simple</h1>
-        <p className="text-lg md:text-base leading-relaxed max-w-3xl mx-auto mb-10">
+      <div className="relative max-w-screen-xl px-3 z-10">
+        <h1 className="text-[50px] font-semibold mb-4">Welcome to Sourcing Made Simple</h1>
+        <p className="leading-relaxed container mx-auto mb-10 text-[17px]">
           We are a team of passionate people, hold product integrity at the core of our values. We know how vital it is
           to match the right product to the right project and business, so we are here to advise you every step of the
           way.
         </p>
 
         <form onSubmit={handleSubmit} className="w-full max-w-5xl mx-auto">
-          <div className="flex flex-wrap justify-center gap-3 md:flex-col">
+          <div className="flex flex-wrap justify-center gap-3 md:flex-row">
             {["name", "email", "mobile", "location"].map((field) => (
               <input
                 key={field}
@@ -63,13 +63,13 @@ export default function ContactHero() {
                 value={formData[field]}
                 onChange={handleChange}
                 required
-                className="flex-1 min-w-[200px] px-4 py-3 rounded bg-white/90 text-gray-800 placeholder-gray-600"
+                className="flex-1 min-w-[200px] px-4 py-2 rounded bg-transparent border-[1px] text-[#918C8C] placeholder-[#918C8C]"
               />
             ))}
 
             <button
               type="submit"
-              className="px-6 py-3 bg-white text-gray-800 font-semibold rounded hover:bg-gray-200 transition duration-300"
+              className="px-6 py-2 bg-[#F6F3E9] text-[#918C8C] font-semibold rounded hover:bg-gray-200 transition duration-300"
             >
               Call Back Request
             </button>

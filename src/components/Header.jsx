@@ -85,9 +85,9 @@ export default function Header() {
                     transition: { duration: 0.2 }
                   }}
                 >
-                  <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  {/* <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M6 9L1 4c-.4-.4-.4-1 0-1.4.4-.4 1-.4 1.4 0L6 6.6 9.6 3c.4-.4 1-.4 1.4 0 .4.4.4 1 0 1.4L6 9z" fill="currentColor"/>
-                  </svg>
+                  </svg> */}
                 </motion.span>
               </motion.button>
               
