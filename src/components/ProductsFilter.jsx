@@ -29,23 +29,23 @@ import light5 from '../assets/light5.jpeg';
 import decor1 from '../assets/decor1.jpeg';
 import decor2 from '../assets/decor2.jpeg';
 
-const categories = ["Chair", "Sofa", "Table", "Lighting", "Decoration"];
+const categories = ["Sofa", "chair", "Dinning", "Lighting", "Decoration"];
 
 const products = [
-    { id: 1, category: "Chair", img: char1 },
-    { id: 2, category: "Chair", img: char2 },
-    { id: 3, category: "Chair", img: char3 },
-    { id: 4, category: "Chair", img: char4 },
-    { id: 5, category: "Chair", img: char1 },
-    { id: 6, category: "Chair", img: char2 },
-    { id: 7, category: "Sofa", img: sofa1 },
-    { id: 8, category: "Sofa", img: sofa2 },
-    { id: 9, category: "Sofa", img: sofa3 },
-    { id: 11, category: "Table", img: table1 },
-    { id: 12, category: "Table", img: table2 },
-    { id: 13, category: "Table", img: table3 },
-    { id: 14, category: "Table", img: table4 },
-    { id: 15, category: "Table", img: table5 },
+    { id: 1, category: "Sofa", img: char1 },
+    { id: 2, category: "Sofa", img: char2 },
+    { id: 3, category: "Sofa", img: char3 },
+    { id: 4, category: "Sofa", img: char4 },
+    { id: 5, category: "Sofa", img: char1 },
+    { id: 6, category: "Sofa", img: char2 },
+    { id: 7, category: "chair", img: sofa1 },
+    { id: 8, category: "chair", img: sofa2 },
+    { id: 9, category: "chair", img: sofa3 },
+    { id: 11, category: "Dinning", img: table1 },
+    { id: 12, category: "Dinning", img: table2 },
+    { id: 13, category: "Dinning", img: table3 },
+    { id: 14, category: "Dinning", img: table4 },
+    { id: 15, category: "Dinning", img: table5 },
     { id: 16, category: "Lighting", img: light1 },
     { id: 17, category: "Lighting", img: light2 },
     { id: 18, category: "Lighting", img: light3 },

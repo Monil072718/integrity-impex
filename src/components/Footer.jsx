@@ -42,33 +42,19 @@ const Footer = () => {
             <div>
               <h4 className="text-lg font-semibold mb-4">China Office</h4>
               <p className="text-sm leading-relaxed">
-                Address- 803, 8th Floor XINGYAO Plaza, No.14, Lecong Jianshe Road,<br />
-                Shunde District, Foshan City,<br />
-                Guangdong Province, China<br />
-                Ph- +86 135 3458 7106
+                Address- No.10 Xikeng Road ,Zuotan villagers committee,Longjiang Town,Shunde district, Foshan City ,Guangdong Province ,China.<br />
+                Ph- +86 130 7422 9152
               </p>
             </div>
   
             <div>
               <h4 className="text-lg font-semibold mb-4">India Office</h4>
               <p className="text-sm leading-relaxed">
-                Address- 106 Unnati Tower, Central Spine,<br />
-                Vidyadhar Nagar Jaipur,<br />
-                Rajasthan -302039<br />
-                Ph- +91-7014124192
+                Address- 461, Laxmi Enclave 2, Opp. Gajera School, Katargam, Surat. 395004 <br />
+                Ph- +91 9974606135 / +91 98982 29152
+                
               </p>
             </div>
-          </div>
-        </div>
-  
-        <div className="bg-[#f6f3eb] text-[#7c3a23] py-4 px-6 flex flex-col md:flex-row justify-between items-center text-xs">
-          <span>
-            Designed and Managed by <a href="#" className="font-medium text-black">Driftclick</a>
-          </span>
-          <div className="flex space-x-4 mt-2 md:mt-0 text-[#7c3a23]">
-            <a href="#" className="hover:underline">Privacy Policy</a>
-            <a href="#" className="hover:underline">Disclaimer</a>
-            <a href="#" className="hover:underline">Sitemap</a>
           </div>
         </div>
       </footer>

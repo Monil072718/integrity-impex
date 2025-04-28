@@ -1,13 +1,27 @@
-import { useState } from 'react'
+import { useState, useRef } from 'react'
 import { Menu, User } from "lucide-react"
 import { motion } from 'framer-motion'
 import { Button } from './ui/button'
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  
+  // Refs for each section
+  const homeRef = useRef(null)
+  const aboutRef = useRef(null)
+  const productsRef = useRef(null)
+  const contactRef = useRef(null)
+
+  const scrollToSection = (ref) => {
+    window.scrollTo({
+      top: ref.current.offsetTop,
+      behavior: 'smooth'
+    })
+    setIsMenuOpen(false) // Close mobile menu after clicking
+  }
 
   return (
-    <header className="bg-white shadow-sm  top-0 z-50">
+    <header className="bg-white shadow-sm sticky top-0 z-50">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16 items-center">
           {/* Logo with bounce effect */}
@@ -17,159 +31,74 @@ export default function Header() {
             whileTap={{ scale: 0.95 }}
           >
             <div className="flex-shrink-0 flex items-center">
-              <motion.div 
-                className=" text-black font-bold rounded-lg w-40 h-11 flex items-center text-center justify-center"
+              <motion.button 
+                className="text-black font-bold rounded-lg w-40 h-11 flex items-center text-center justify-center"
                 whileHover={{ 
                   scale: 1.1,
                   rotate: [0, -5, 5, -5, 0],
                   transition: { duration: 0.5 }
                 }}
+                onClick={() => scrollToSection(homeRef)}
               >
                 Integrity Impex
-              </motion.div>
-              {/* <motion.span 
-                className="ml-3 text-xl font-semibold text-gray-900 hidden sm:block"
-                whileHover={{ 
-                  x: [0, 2, -2, 2, 0],
-                  transition: { duration: 0.5 }
-                }}
-              >
-                AppCo
-              </motion.span> */}
+              </motion.button>
             </div>
           </motion.div>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex space-x-8">
-            <motion.a 
-              href="#" 
+            <motion.button 
               className="text-gray-900 hover:text-blue-600 px-3 py-2 text-sm font-medium"
               whileHover={{ 
                 y: -2,
                 scale: 1.05,
                 transition: { type: "spring", stiffness: 300 }
               }}
+              onClick={() => scrollToSection(homeRef)}
             >
               Home
-            </motion.a>
+            </motion.button>
             
-            <motion.a 
-              href="#" 
+            <motion.button 
               className="text-gray-900 hover:text-blue-600 px-3 py-2 text-sm font-medium"
               whileHover={{ 
                 y: -2,
                 scale: 1.05,
                 transition: { type: "spring", stiffness: 300 }
               }}
+              onClick={() => scrollToSection(aboutRef)}
             >
               About
-            </motion.a>
+            </motion.button>
             
-            {/* Dropdown with enhanced effects */}
-            <motion.div 
-              className="relative group"
-              whileHover={{ scale: 1.02 }}
-            >
-              <motion.button 
-                className="text-gray-900 hover:text-blue-600 px-3 py-2 text-sm font-medium flex items-center"
-                whileHover={{ 
-                  y: -2,
-                  transition: { type: "spring", damping: 10 }
-                }}
-              >
-                Products
-                <motion.span
-                  className="ml-1"
-                  animate={{ 
-                    rotate: isMenuOpen ? 180 : 0,
-                    transition: { duration: 0.2 }
-                  }}
-                >
-                  {/* <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M6 9L1 4c-.4-.4-.4-1 0-1.4.4-.4 1-.4 1.4 0L6 6.6 9.6 3c.4-.4 1-.4 1.4 0 .4.4.4 1 0 1.4L6 9z" fill="currentColor"/>
-                  </svg> */}
-                </motion.span>
-              </motion.button>
-              
-              {/* Dropdown Menu with spring effect */}
-              <motion.div 
-                className="absolute left-0 mt-2 w-48 bg-white rounded-md shadow-lg origin-top"
-                initial={{ opacity: 0, y: -10, scaleY: 0.9 }}
-                animate={{ 
-                  opacity: isMenuOpen ? 1 : 0,
-                  y: isMenuOpen ? 0 : -10,
-                  scaleY: isMenuOpen ? 1 : 0.9,
-                  display: isMenuOpen ? 'block' : 'none',
-                  transition: { 
-                    type: "spring",
-                    stiffness: 400,
-                    duration: 0.2
-                  }
-                }}
-              >
-                <div className="py-1">
-                  <motion.a 
-                    href="#" 
-                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
-                    whileHover={{ 
-                      x: 5,
-                      transition: { type: "spring", stiffness: 500 }
-                    }}
-                  >
-                    Product 1
-                  </motion.a>
-                  <motion.a 
-                    href="#" 
-                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
-                    whileHover={{ 
-                      x: 5,
-                      transition: { type: "spring", stiffness: 500 }
-                    }}
-                  >
-                    Product 2
-                  </motion.a>
-                  <motion.a 
-                    href="#" 
-                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
-                    whileHover={{ 
-                      x: 5,
-                      transition: { type: "spring", stiffness: 500 }
-                    }}
-                  >
-                    Product 3
-                  </motion.a>
-                  <motion.a 
-                    href="#" 
-                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
-                    whileHover={{ 
-                      scale: 1.05,
-                      transition: { type: "spring", stiffness: 400 }
-                    }}
-                  >
-                    View All
-                  </motion.a>
-                </div>
-              </motion.div>
-            </motion.div>
-
-            <motion.a 
-              href="#" 
+            <motion.button 
               className="text-gray-900 hover:text-blue-600 px-3 py-2 text-sm font-medium"
               whileHover={{ 
                 y: -2,
                 scale: 1.05,
                 transition: { type: "spring", stiffness: 300 }
               }}
+              onClick={() => scrollToSection(productsRef)}
+            >
+              Products
+            </motion.button>
+
+            <motion.button 
+              className="text-gray-900 hover:text-blue-600 px-3 py-2 text-sm font-medium"
+              whileHover={{ 
+                y: -2,
+                scale: 1.05,
+                transition: { type: "spring", stiffness: 300 }
+              }}
+              onClick={() => scrollToSection(contactRef)}
             >
               Contact
-            </motion.a>
+            </motion.button>
           </nav>
 
           {/* Mobile menu button with tap effect */}
           <div className="md:hidden flex items-center">
-            <motion.div
-              whileTap={{ scale: 0.9 }}
-            >
+            <motion.div whileTap={{ scale: 0.9 }}>
               <Button 
                 variant="ghost" 
                 size="icon" 
@@ -207,65 +136,38 @@ export default function Header() {
         }}
       >
         <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-          <motion.a 
-            href="#" 
-            className="block px-3 py-2 rounded-md text-base font-medium text-gray-900 hover:text-blue-600 hover:bg-gray-50"
+          <motion.button 
+            className="block px-3 py-2 rounded-md text-base font-medium text-gray-900 hover:text-blue-600 hover:bg-gray-50 w-full text-left"
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
+            onClick={() => scrollToSection(homeRef)}
           >
             Home
-          </motion.a>
-          <motion.a 
-            href="#" 
-            className="block px-3 py-2 rounded-md text-base font-medium text-gray-900 hover:text-blue-600 hover:bg-gray-50"
+          </motion.button>
+          <motion.button 
+            className="block px-3 py-2 rounded-md text-base font-medium text-gray-900 hover:text-blue-600 hover:bg-gray-50 w-full text-left"
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
+            onClick={() => scrollToSection(aboutRef)}
           >
             About
-          </motion.a>
-          <div className="relative">
-            <motion.button 
-              className="w-full text-left px-3 py-2 rounded-md text-base font-medium text-gray-900 hover:text-blue-600 hover:bg-gray-50 flex justify-between items-center"
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-            >
-              Products
-              <svg className="ml-1" width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M6 9L1 4c-.4-.4-.4-1 0-1.4.4-.4 1-.4 1.4 0L6 6.6 9.6 3c.4-.4 1-.4 1.4 0 .4.4.4 1 0 1.4L6 9z" fill="currentColor"/>
-              </svg>
-            </motion.button>
-            <div className="pl-4">
-              <motion.a 
-                href="#" 
-                className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50"
-                whileHover={{ x: 5 }}
-              >
-                Product 1
-              </motion.a>
-              <motion.a 
-                href="#" 
-                className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50"
-                whileHover={{ x: 5 }}
-              >
-                Product 2
-              </motion.a>
-              <motion.a 
-                href="#" 
-                className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50"
-                whileHover={{ x: 5 }}
-              >
-                Product 3
-              </motion.a>
-            </div>
-          </div>
-          <motion.a 
-            href="#" 
-            className="block px-3 py-2 rounded-md text-base font-medium text-gray-900 hover:text-blue-600 hover:bg-gray-50"
+          </motion.button>
+          <motion.button 
+            className="block px-3 py-2 rounded-md text-base font-medium text-gray-900 hover:text-blue-600 hover:bg-gray-50 w-full text-left"
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
+            onClick={() => scrollToSection(productsRef)}
+          >
+            Products
+          </motion.button>
+          <motion.button 
+            className="block px-3 py-2 rounded-md text-base font-medium text-gray-900 hover:text-blue-600 hover:bg-gray-50 w-full text-left"
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
+            onClick={() => scrollToSection(contactRef)}
           >
             Contact
-          </motion.a>
+          </motion.button>
         </div>
       </motion.div>
     </header>
