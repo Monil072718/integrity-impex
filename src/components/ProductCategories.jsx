@@ -2,7 +2,7 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 
 // Category images
-const imgFurniture = "/placeholder.svg?height=400&width=600&text=Furniture";
+const light3 = "../assets/light3.jpeg";
 const imgLighting = "/placeholder.svg?height=400&width=600&text=Lighting";
 const imgDecorative = "/placeholder.svg?height=400&width=600&text=Decorative";
 
@@ -13,19 +13,19 @@ export default function Home() {
   const productCategories = [
     {
       id: 1,
-      title: "Furniture",
-      image: imgFurniture,
+      // title: "Furniture",
+      image: light3,
       description: 'People ignore design that ignores people." We help you find Furniture which is Elegant, Exclusive and Extra Ordinary',
     },
     {
       id: 2,
-      title: "Lighting",
+      // title: "Lighting",
       image: imgLighting,
       description: 'Let light shine out of darkness." We help you in finding light which gives lightning look to your property.',
     },
     {
       id: 3,
-      title: "Decorative",
+      // title: "Decorative",
       image: imgDecorative,
       description: 'Where utility ends and decoration begins is perfection." We get best of the art for you.',
     },
