@@ -42,7 +42,7 @@ const Footer = () => {
             <div>
               <h4 className="text-lg font-semibold mb-4">China Office</h4>
               <p className="text-sm leading-relaxed">
-                Address- No.10 Xikeng Road ,Zuotan villagers committee,Longjiang Town,Shunde district, Foshan City ,Guangdong Province ,China.<br />
+                 No.10 Xikeng Road ,Zuotan villagers committee,Longjiang Town,Shunde district, Foshan City ,Guangdong Province ,China.<br />
                 Ph- +86 130 7422 9152
               </p>
             </div>
@@ -50,7 +50,7 @@ const Footer = () => {
             <div>
               <h4 className="text-lg font-semibold mb-4">India Office</h4>
               <p className="text-sm leading-relaxed">
-                Address- 461, Laxmi Enclave 2, Opp. Gajera School, Katargam, Surat. 395004 <br />
+                 461, Laxmi Enclave 2, Opp. Gajera School, Katargam, Surat. 395004 <br />
                 Ph- +91 9974606135 / +91 98982 29152
                 
               </p>
