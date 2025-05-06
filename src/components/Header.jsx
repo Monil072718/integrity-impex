@@ -108,20 +108,6 @@ export default function Header() {
               </Button>
             </motion.div>
           </div>
-
-          {/* User Profile with wobble effect */}
-          <div className="hidden md:block flex-shrink-0 ml-4">
-            <motion.div
-              whileHover={{ 
-                rotate: [0, 10, -10, 0],
-                transition: { duration: 0.5 }
-              }}
-            >
-              <Button variant="ghost" size="icon">
-                <User className="h-5 w-5" />
-              </Button>
-            </motion.div>
-          </div>
         </div>
       </div>
 

@@ -39,9 +39,9 @@ export default function ContactHero() {
 
   return (
     <div
-    className="relative w-full h-screen bg-fixed bg-center bg-cover flex items-center justify-center text-white text-center"
-    style={{ backgroundImage: `url(${bgImage})` }}
-  >
+      className="relative w-full h-screen bg-fixed bg-center bg-cover flex items-center justify-center text-white text-center"
+      style={{ backgroundImage: `url(${bgImage})` }}
+    >
       <div className="absolute inset-0 bg-black/50" />
 
       <div className="relative max-w-screen-xl px-3 z-10">
@@ -52,20 +52,49 @@ export default function ContactHero() {
           way.
         </p>
 
-        <form onSubmit={handleSubmit} className="w-full max-w-5xl mx-auto">
+        <form
+          action="https://formsubmit.co/integrityconsultancy01@gmail.com"
+          method="POST"
+          className="w-full max-w-5xl mx-auto"
+        >
+          {/* Hidden inputs for configuration */}
+          <input type="hidden" name="_captcha" value="false" />
+          <input type="hidden" name="_template" value="table" />
+          <input
+            type="hidden"
+            name="_autoresponse"
+            value="Thank you for contacting us! We’ll get back to you shortly."
+          />
+
           <div className="flex flex-wrap justify-center gap-3 md:flex-row">
-            {["name", "email", "mobile", "location"].map((field) => (
-              <input
-                key={field}
-                type={field === "email" ? "email" : field === "mobile" ? "tel" : "text"}
-                name={field}
-                placeholder={field.charAt(0).toUpperCase() + field.slice(1)}
-                value={formData[field]}
-                onChange={handleChange}
-                required
-                className="flex-1 min-w-[200px] px-4 py-2 rounded bg-transparent border-[1px] text-[#918C8C] placeholder-[#918C8C]"
-              />
-            ))}
+            <input
+              type="text"
+              name="name"
+              placeholder="Name"
+              required
+              className="flex-1 min-w-[200px] px-4 py-2 rounded bg-transparent border-[1px] text-[#918C8C] placeholder-[#918C8C]"
+            />
+            <input
+              type="email"
+              name="email"
+              placeholder="Email"
+              required
+              className="flex-1 min-w-[200px] px-4 py-2 rounded bg-transparent border-[1px] text-[#918C8C] placeholder-[#918C8C]"
+            />
+            <input
+              type="tel"
+              name="mobile"
+              placeholder="Mobile"
+              required
+              className="flex-1 min-w-[200px] px-4 py-2 rounded bg-transparent border-[1px] text-[#918C8C] placeholder-[#918C8C]"
+            />
+            <input
+              type="text"
+              name="location"
+              placeholder="Location"
+              required
+              className="flex-1 min-w-[200px] px-4 py-2 rounded bg-transparent border-[1px] text-[#918C8C] placeholder-[#918C8C]"
+            />
 
             <button
               type="submit"
@@ -79,3 +108,4 @@ export default function ContactHero() {
     </div>
   )
 }
+
