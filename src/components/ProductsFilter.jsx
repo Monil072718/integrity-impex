@@ -1,5 +1,6 @@
 import { useState } from "react";
 import clsx from "clsx";
+
 // Chairs
 import char1 from '../assets/char1.jpg';
 import char2 from '../assets/char2.jpg';
@@ -25,43 +26,39 @@ import light3 from '../assets/light3.jpeg';
 import light4 from '../assets/light4.jpeg';
 import light5 from '../assets/light5.jpeg';
 
-// decoration
+// Decoration
 import decor1 from '../assets/decor1.jpeg';
 import decor2 from '../assets/decor2.jpeg';
 
-const categories = ["Sofa", "chair", "Dinning", "Lighting", "Decoration"];
+const categories = ["Sofa", "Chair", "Dining", "Lighting", "Decoration"];
 
 const products = [
-    { id: 1, category: "Sofa", img: char1 },
-    { id: 2, category: "Sofa", img: char2 },
-    { id: 3, category: "Sofa", img: char3 },
-    { id: 4, category: "Sofa", img: char4 },
-    { id: 5, category: "Sofa", img: char1 },
-    { id: 6, category: "Sofa", img: char2 },
-    { id: 7, category: "chair", img: sofa1 },
-    { id: 8, category: "chair", img: sofa2 },
-    { id: 9, category: "chair", img: sofa3 },
-    { id: 11, category: "Dinning", img: table1 },
-    { id: 12, category: "Dinning", img: table2 },
-    { id: 13, category: "Dinning", img: table3 },
-    { id: 14, category: "Dinning", img: table4 },
-    { id: 15, category: "Dinning", img: table5 },
-    { id: 16, category: "Lighting", img: light1 },
-    { id: 17, category: "Lighting", img: light2 },
-    { id: 18, category: "Lighting", img: light3 },
-    { id: 19, category: "Lighting", img: light4 },
-    { id: 20, category: "Lighting", img: light5 },
-    { id: 20, category: "Decoration", img: decor1 },
-    { id: 21, category: "Decoration", img: decor2 },
-
+    { id: 1, category: "Sofa", img: sofa1, name: "Modern Sofa" },
+    { id: 2, category: "Sofa", img: sofa2, name: "Leather Sofa" },
+    { id: 3, category: "Sofa", img: sofa3, name: "Sectional Sofa" },
+    { id: 4, category: "Chair", img: char1, name: "Armchair" },
+    { id: 5, category: "Chair", img: char2, name: "Dining Chair" },
+    { id: 6, category: "Chair", img: char3, name: "Accent Chair" },
+    { id: 7, category: "Chair", img: char4, name: "Office Chair" },
+    { id: 8, category: "Dining", img: table1, name: "Wooden Table" },
+    { id: 9, category: "Dining", img: table2, name: "Glass Table" },
+    { id: 10, category: "Dining", img: table3, name: "Extendable Table" },
+    { id: 11, category: "Dining", img: table4, name: "Round Table" },
+    { id: 12, category: "Dining", img: table5, name: "Outdoor Table" },
+    { id: 13, category: "Lighting", img: light1, name: "Pendant Light" },
+    { id: 14, category: "Lighting", img: light2, name: "Floor Lamp" },
+    { id: 15, category: "Lighting", img: light3, name: "Table Lamp" },
+    { id: 16, category: "Lighting", img: light4, name: "Chandelier" },
+    { id: 17, category: "Lighting", img: light5, name: "Wall Sconce" },
+    { id: 18, category: "Decoration", img: decor1, name: "Vase Set" },
+    { id: 19, category: "Decoration", img: decor2, name: "Wall Art" },
 ];
 
-
 const ProductsFilter = () => {
-    const [selectedCategory, setSelectedCategory] = useState("Chair");
+    const [selectedCategory, setSelectedCategory] = useState("Sofa");
 
     const filteredProducts = products.filter(
-        (product) => product.category === selectedCategory
+        (product) => product.category.toLowerCase() === selectedCategory.toLowerCase()
     );
 
     return (
@@ -71,14 +68,14 @@ const ProductsFilter = () => {
             </h2>
 
             {/* Category Filters */}
-            <div className="flex justify-center space-x-6 mb-10">
+            <div className="flex flex-wrap justify-center gap-4 mb-10">
                 {categories.map((category) => (
                     <button
                         key={category}
                         onClick={() => setSelectedCategory(category)}
                         className={clsx(
                             "uppercase text-sm font-medium px-4 py-1 rounded-full transition duration-300",
-                            selectedCategory === category
+                            selectedCategory.toLowerCase() === category.toLowerCase()
                                 ? "bg-[#6c584c] text-white shadow-md"
                                 : "text-[#6c584c] hover:bg-[#d4a373]/20"
                         )}
@@ -90,20 +87,29 @@ const ProductsFilter = () => {
 
             {/* Product Grid */}
             <div className="container mx-auto">
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 transition-all duration-500 ease-in-out">
-                    {filteredProducts.map((product) => (
-                        <div
-                            key={product.id}
-                            className="rounded-xl overflow-hidden group cursor-pointer transition-transform transform hover:scale-105 hover:shadow-xl bg-white"
-                        >
-                            <img
-                                src={product.img}
-                                alt="Product"
-                                className="w-full h-[280px] object-cover group-hover:brightness-90 transition-all duration-300"
-                            />
-                        </div>
-                    ))}
-                </div>
+                {filteredProducts.length === 0 ? (
+                    <div className="text-center py-10 text-[#6c584c]">No products found in this category</div>
+                ) : (
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                        {filteredProducts.map((product) => (
+                            <div
+                                key={product.id}
+                                className="rounded-xl overflow-hidden group cursor-pointer transition-all duration-300 hover:shadow-xl bg-white"
+                            >
+                                <div className="relative pt-[100%]"> {/* Square container */}
+                                    <img
+                                        src={product.img}
+                                        alt={product.name}
+                                        className="absolute top-0 left-0 w-full h-full object-cover group-hover:brightness-90 transition-all duration-300"
+                                    />
+                                </div>
+                                <div className="p-4">
+                                    <h3 className="text-lg font-medium text-[#6c584c]">{product.name}</h3>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                )}
             </div>
         </div>
     );
