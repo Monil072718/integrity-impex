@@ -1,44 +1,41 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-
-// Category images
-const light3 = "../assets/light3.jpeg";
-const imgLighting = "/placeholder.svg?height=400&width=600&text=Lighting";
-const imgDecorative = "/placeholder.svg?height=400&width=600&text=Decorative";
+import ligh from "../assets/ligh.webp";
+import fur from "../assets/fur.webp";
+import dec from "../assets/dec.webp";
 
 export default function Home() {
-  // Categories state
   const [hoveredCard, setHoveredCard] = useState(null);
 
   const productCategories = [
     {
       id: 1,
-      // title: "Furniture",
-      image: light3,
-      description: 'People ignore design that ignores people." We help you find Furniture which is Elegant, Exclusive and Extra Ordinary',
+      title: "Furniture",
+      image: fur,
+      description:
+        'People ignore design that ignores people." We help you find Furniture which is Elegant, Exclusive and Extra Ordinary',
     },
     {
       id: 2,
-      // title: "Lighting",
-      image: imgLighting,
-      description: 'Let light shine out of darkness." We help you in finding light which gives lightning look to your property.',
+      title: "Lighting",
+      image: ligh,
+      description:
+        'Let light shine out of darkness." We help you in finding light which gives lightning look to your property.',
     },
     {
       id: 3,
-      // title: "Decorative",
-      image: imgDecorative,
-      description: 'Where utility ends and decoration begins is perfection." We get best of the art for you.',
+      title: "Decorative",
+      image: dec,
+      description:
+        'Where utility ends and decoration begins is perfection." We get best of the art for you.',
     },
   ];
 
-  // Animation variants
   const categoriesContainerVariants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
-      transition: {
-        staggerChildren: 0.2,
-      },
+      transition: { staggerChildren: 0.2 },
     },
   };
 
@@ -47,17 +44,12 @@ export default function Home() {
     visible: {
       y: 0,
       opacity: 1,
-      transition: {
-        type: "spring",
-        stiffness: 100,
-        damping: 15,
-      },
+      transition: { type: "spring", stiffness: 100, damping: 15 },
     },
   };
 
   return (
     <div className="min-h-screen bg-[#faf9f6] font-sans">
-      {/* Product Categories Section */}
       <div className="w-full mx-auto px-5 py-16">
         <motion.h1
           initial={{ opacity: 0, y: -20 }}
@@ -74,8 +66,7 @@ export default function Home() {
           className="text-center max-w-[900px] mx-auto mb-[50px] leading-relaxed text-[#333] text-base"
         >
           Discover furniture that embodies elegance and exclusivity, transforming your space into an extraordinary haven.
-          Illuminate your surroundings with our unique lighting selection, casting a mesmerizing radiance that transcends
-          the ordinary.
+          Illuminate your surroundings with our unique lighting selection, casting a mesmerizing radiance that transcends the ordinary.
         </motion.p>
         <div className="container mx-auto">
           <motion.div
@@ -102,7 +93,7 @@ export default function Home() {
                   }`}
                 >
                   <img
-                    src={category.image || "/placeholder.svg"}
+                    src={category.image}
                     alt={category.title}
                     className={`w-full h-full object-cover transition-transform duration-700 ease-in-out ${
                       hoveredCard === category.id ? "scale-105" : ""
