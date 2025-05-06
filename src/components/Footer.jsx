@@ -3,7 +3,7 @@ const Footer = () => {
       <footer className="bg-[#252e32] text-white text-sm">
         <div className="max-w-7xl mx-auto py-12 px-6">
           <div className="flex flex-col items-center text-center space-y-4">
-            <img src="/logo.svg" alt="Logo" className="h-6" /> {/* Replace with actual logo */}
+            {/* <img src="" alt="" className="h-6" /> Replace with actual logo */}
             <div className="flex space-x-4 mt-2">
               <a href="#" aria-label="Facebook">
                 <i className="fab fa-facebook-f"></i>
