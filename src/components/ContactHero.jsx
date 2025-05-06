@@ -1,7 +1,7 @@
 "use client"
 
 import { useState, ChangeEvent, FormEvent } from "react"
-import bgImage from '../assets/bg-room.jpg';
+import bgImage from '../assets/bg-room.webp';
 
 export default function ContactHero() {
   const [formData, setFormData] = useState({

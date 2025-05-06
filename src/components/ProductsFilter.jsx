@@ -2,33 +2,33 @@ import { useState } from "react";
 import clsx from "clsx";
 
 // Chairs
-import char1 from '../assets/char1.jpg';
-import char2 from '../assets/char2.jpg';
-import char3 from '../assets/char3.jpg';
-import char4 from '../assets/char4.jpg';
+import char1 from '../assets/char1.webp';
+import char2 from '../assets/char2.webp';
+import char3 from '../assets/char3.webp';
+import char4 from '../assets/char4.webp';
 
 // Sofas
-import sofa1 from '../assets/sofa1.jpg';
-import sofa2 from '../assets/sofa2.jpg';
-import sofa3 from '../assets/sofa3.jpg';
+import sofa1 from '../assets/sofa1.webp';
+import sofa2 from '../assets/sofa2.webp';
+import sofa3 from '../assets/sofa3.webp';
 
 // Tables
-import table1 from '../assets/table1.jpg';
-import table2 from '../assets/table2.jpg';
-import table3 from '../assets/table3.jpg';
-import table4 from '../assets/table4.jpg';
-import table5 from '../assets/table5.jpg';
+import table1 from '../assets/table1.webp';
+import table2 from '../assets/table2.webp';
+import table3 from '../assets/table3.webp';
+import table4 from '../assets/table4.webp';
+import table5 from '../assets/table5.webp';
 
 // Light
-import light1 from '../assets/light1.jpeg';
-import light2 from '../assets/light2.jpeg';
-import light3 from '../assets/light3.jpeg';
-import light4 from '../assets/light4.jpeg';
-import light5 from '../assets/light5.jpeg';
+import light1 from '../assets/light1.webp';
+import light2 from '../assets/light2.webp';
+import light3 from '../assets/light3.webp';
+import light4 from '../assets/light4.webp';
+import light5 from '../assets/light5.webp';
 
 // Decoration
-import decor1 from '../assets/decor1.jpeg';
-import decor2 from '../assets/decor2.jpeg';
+import decor1 from '../assets/decor1.webp';
+import decor2 from '../assets/decor2.webp';
 
 const categories = ["Sofa", "Chair", "Dining", "Lighting", "Decoration"];
 

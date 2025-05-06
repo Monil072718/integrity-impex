@@ -1,6 +1,6 @@
-import blogImg1 from '../assets/blog-img1.jpg';
-import blogImg2 from '../assets/blog-img2.jpg';
-import blogImg3 from '../assets/blog-img3.jpg';
+import blogImg1 from '../assets/blog-img1.webp';
+import blogImg2 from '../assets/blog-img2.webp';
+import blogImg3 from '../assets/blog-img3.webp';
 
 const blogData = [
   {

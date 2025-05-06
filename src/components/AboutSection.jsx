@@ -1,4 +1,4 @@
-import bgImage from '../assets/bg-image-for-about-us.jpg'
+import bgImage from '../assets/bg-image-for-about-us.webp'
 import { Button } from './ui/button'
 
 export default function AboutSection() {
