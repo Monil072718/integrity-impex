@@ -260,7 +260,7 @@ export default function ServicesSection() {
 
 
     return (
-        <section className="px-5 py-16 bg-[#faf9f6] font-['Segoe UI','Tahoma','Geneva','Verdana','sans-serif']">
+        <section className="px-5 py-16 bg-[#faf9f6] font-['Segoe UI','Tahoma','Geneva','Verdana','sans-serif']" id="service">
             <div className="container mx-auto">
                 <h2 className="text-center text-[2.5rem] text-[#8b4513] font-semibold mb-12">Our Services</h2>
 

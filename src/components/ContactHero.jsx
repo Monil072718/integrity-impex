@@ -21,7 +21,7 @@ export default function ContactHero() {
 
   return (
     <div
-      className="relative w-full h-screen bg-fixed bg-center bg-cover flex items-center justify-center text-white text-center"
+      className="relative w-full h-[70vh] bg-fixed bg-center bg-cover flex items-center justify-center text-white text-center" id="home"
       style={{ 
         backgroundImage: `url(${bgImage.src})`,
         // Preload hint for the browser
@@ -29,7 +29,7 @@ export default function ContactHero() {
       }}
     >
       {/* Semi-transparent overlay */}
-      <div className="absolute inset-0 bg-black/50" aria-hidden="true" />
+      <div className="absolute inset-0 bg-black/10" aria-hidden="true" />
 
       <div className="relative max-w-screen-xl px-3 z-10">
         <h1 className="text-4xl md:text-[50px] font-semibold mb-4">Welcome to Sourcing Made Simple</h1>

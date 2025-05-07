@@ -31,33 +31,32 @@ const blogData = [
 
 const BlogSection = () => {
   return (
-    <section className="bg-[#f6f3eb] py-20 px-6">
+    <section className="bg-[#f6f3eb] py-20 px-6" id="blog">
       <h2 className="text-4xl font-semibold text-center text-[#7c3a23] mb-14">
         What We Think
       </h2>
       <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-        {blogData.map((post) => (
+        {blogData.map(({ id, category, title, description, image }) => (
           <div
-            key={post.id}
+            key={id}
             className="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300"
           >
             <div className="relative">
               <img
-                src={post.image}
-                alt={post.title}
+                src={image}
+                alt={title}
                 className="w-full h-56 object-cover"
+                loading="lazy"
               />
               <span className="absolute top-3 right-3 bg-[#7c3a23] text-white text-xs px-3 py-1 rounded-full uppercase tracking-wider font-semibold">
-                {post.category}
+                {category}
               </span>
             </div>
             <div className="p-6">
               <h3 className="text-xl font-medium text-gray-800 mb-3">
-                {post.title}
+                {title}
               </h3>
-              <p className="text-gray-600 text-sm">
-                {post.description}
-              </p>
+              <p className="text-gray-600 text-sm">{description}</p>
             </div>
           </div>
         ))}

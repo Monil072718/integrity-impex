@@ -54,7 +54,7 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen bg-[#faf9f6]">
+    <div className="min-h-screen bg-[#faf9f6]" >
       <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 py-16">
         <motion.h1
           initial={{ opacity: 0, y: -10 }}

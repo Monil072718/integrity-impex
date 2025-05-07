@@ -1,84 +1,70 @@
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import clsx from "clsx";
 
-// Chairs
-import char1 from '../assets/char1.webp';
-import char2 from '../assets/char2.webp';
-import char3 from '../assets/char3.webp';
-import char4 from '../assets/char4.webp';
-
-// Sofas
-import sofa1 from '../assets/sofa1.webp';
-import sofa2 from '../assets/sofa2.webp';
-import sofa3 from '../assets/sofa3.webp';
-
-// Tables
-import table1 from '../assets/table1.webp';
-import table2 from '../assets/table2.webp';
-import table3 from '../assets/table3.webp';
-import table4 from '../assets/table4.webp';
-import table5 from '../assets/table5.webp';
-
-// Light
-import light1 from '../assets/light1.webp';
-import light2 from '../assets/light2.webp';
-import light3 from '../assets/light3.webp';
-import light4 from '../assets/light4.webp';
-import light5 from '../assets/light5.webp';
-
-// Decoration
-import decor1 from '../assets/decor1.webp';
-import decor2 from '../assets/decor2.webp';
+// Import all images using Vite's glob import
+const productImages = import.meta.glob('../assets/*.webp', { eager: true });
 
 const categories = ["Sofa", "Chair", "Dining", "Lighting", "Decoration"];
 
 const products = [
-    { id: 1, category: "Sofa", img: sofa1, name: "Modern Sofa" },
-    { id: 2, category: "Sofa", img: sofa2, name: "Leather Sofa" },
-    { id: 3, category: "Sofa", img: sofa3, name: "Sectional Sofa" },
-    { id: 4, category: "Chair", img: char1, name: "Armchair" },
-    { id: 5, category: "Chair", img: char2, name: "Dining Chair" },
-    { id: 6, category: "Chair", img: char3, name: "Accent Chair" },
-    { id: 7, category: "Chair", img: char4, name: "Office Chair" },
-    { id: 8, category: "Dining", img: table1, name: "Wooden Table" },
-    { id: 9, category: "Dining", img: table2, name: "Glass Table" },
-    { id: 10, category: "Dining", img: table3, name: "Extendable Table" },
-    { id: 11, category: "Dining", img: table4, name: "Round Table" },
-    { id: 12, category: "Dining", img: table5, name: "Outdoor Table" },
-    { id: 13, category: "Lighting", img: light1, name: "Pendant Light" },
-    { id: 14, category: "Lighting", img: light2, name: "Floor Lamp" },
-    { id: 15, category: "Lighting", img: light3, name: "Table Lamp" },
-    { id: 16, category: "Lighting", img: light4, name: "Chandelier" },
-    { id: 17, category: "Lighting", img: light5, name: "Wall Sconce" },
-    { id: 18, category: "Decoration", img: decor1, name: "Vase Set" },
-    { id: 19, category: "Decoration", img: decor2, name: "Wall Art" },
+    // Sofas
+    { id: 1, category: "Sofa", img: productImages['../assets/sofa1.webp'].default, name: "Modern Sofa" },
+    { id: 2, category: "Sofa", img: productImages['../assets/sofa2.webp'].default, name: "Leather Sofa" },
+    { id: 3, category: "Sofa", img: productImages['../assets/sofa3.webp'].default, name: "Sectional Sofa" },
+    
+    // Chairs
+    { id: 4, category: "Chair", img: productImages['../assets/char1.webp'].default, name: "Armchair" },
+    { id: 5, category: "Chair", img: productImages['../assets/char2.webp'].default, name: "Dining Chair" },
+    { id: 6, category: "Chair", img: productImages['../assets/char3.webp'].default, name: "Accent Chair" },
+    { id: 7, category: "Chair", img: productImages['../assets/char4.webp'].default, name: "Office Chair" },
+    
+    // Dining Tables
+    { id: 8, category: "Dining", img: productImages['../assets/table1.webp'].default, name: "Wooden Table" },
+    { id: 9, category: "Dining", img: productImages['../assets/table2.webp'].default, name: "Glass Table" },
+    { id: 10, category: "Dining", img: productImages['../assets/table3.webp'].default, name: "Extendable Table" },
+    { id: 11, category: "Dining", img: productImages['../assets/table4.webp'].default, name: "Round Table" },
+    { id: 12, category: "Dining", img: productImages['../assets/table5.webp'].default, name: "Outdoor Table" },
+    
+    // Lighting
+    { id: 13, category: "Lighting", img: productImages['../assets/light1.webp'].default, name: "Pendant Light" },
+    { id: 14, category: "Lighting", img: productImages['../assets/light2.webp'].default, name: "Floor Lamp" },
+    { id: 15, category: "Lighting", img: productImages['../assets/light3.webp'].default, name: "Table Lamp" },
+    { id: 16, category: "Lighting", img: productImages['../assets/light4.webp'].default, name: "Chandelier" },
+    { id: 17, category: "Lighting", img: productImages['../assets/light5.webp'].default, name: "Wall Sconce" },
+    
+    // Decoration
+    { id: 18, category: "Decoration", img: productImages['../assets/decor1.webp'].default, name: "Vase Set" },
+    { id: 19, category: "Decoration", img: productImages['../assets/decor2.webp'].default, name: "Wall Art" },
 ];
 
 const ProductsFilter = () => {
     const [selectedCategory, setSelectedCategory] = useState("Sofa");
 
-    const filteredProducts = products.filter(
-        (product) => product.category.toLowerCase() === selectedCategory.toLowerCase()
-    );
+    const filteredProducts = useMemo(() => (
+        products.filter(product => (
+            product.category.toLowerCase() === selectedCategory.toLowerCase()
+        ))
+    ), [selectedCategory]);
 
     return (
-        <div className="px-6 py-10 bg-[#fefae0] min-h-screen">
-            <h2 className="text-4xl font-semibold text-center mb-8 text-[#6c584c]">
+        <div className="px-4 py-8 sm:px-6 sm:py-10 bg-[#fefae0] min-h-screen" id="products">
+            <h2 className="text-3xl sm:text-4xl font-semibold text-center mb-6 sm:mb-8 text-[#6c584c]">
                 FEATURED PRODUCTS
             </h2>
 
             {/* Category Filters */}
-            <div className="flex flex-wrap justify-center gap-4 mb-10">
+            <div className="flex flex-wrap justify-center gap-2 sm:gap-3 mb-8 sm:mb-10">
                 {categories.map((category) => (
                     <button
                         key={category}
                         onClick={() => setSelectedCategory(category)}
                         className={clsx(
-                            "uppercase text-sm font-medium px-4 py-1 rounded-full transition duration-300",
+                            "uppercase text-xs sm:text-sm font-medium px-3 sm:px-4 py-1 rounded-full transition-colors duration-200",
                             selectedCategory.toLowerCase() === category.toLowerCase()
                                 ? "bg-[#6c584c] text-white shadow-md"
                                 : "text-[#6c584c] hover:bg-[#d4a373]/20"
                         )}
+                        aria-label={`Filter by ${category}`}
                     >
                         {category}
                     </button>
@@ -86,25 +72,32 @@ const ProductsFilter = () => {
             </div>
 
             {/* Product Grid */}
-            <div className="container mx-auto">
+            <div className="container mx-auto px-2 sm:px-4">
                 {filteredProducts.length === 0 ? (
-                    <div className="text-center py-10 text-[#6c584c]">No products found in this category</div>
+                    <div className="text-center py-8 text-[#6c584c]">
+                        No products found in this category
+                    </div>
                 ) : (
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
                         {filteredProducts.map((product) => (
                             <div
                                 key={product.id}
-                                className="rounded-xl overflow-hidden group cursor-pointer transition-all duration-300 hover:shadow-xl bg-white"
+                                className="rounded-lg overflow-hidden group cursor-pointer transition-all duration-200 hover:shadow-lg bg-white"
                             >
-                                <div className="relative pt-[100%]"> {/* Square container */}
+                                <div className="relative aspect-square">
                                     <img
                                         src={product.img}
                                         alt={product.name}
-                                        className="absolute top-0 left-0 w-full h-full object-cover group-hover:brightness-90 transition-all duration-300"
+                                        loading="lazy"
+                                        className="absolute top-0 left-0 w-full h-full object-cover group-hover:brightness-90 transition-all duration-200"
+                                        width={400}
+                                        height={400}
                                     />
                                 </div>
-                                <div className="p-4">
-                                    <h3 className="text-lg font-medium text-[#6c584c]">{product.name}</h3>
+                                <div className="p-3 sm:p-4">
+                                    <h3 className="text-base sm:text-lg font-medium text-[#6c584c]">
+                                        {product.name}
+                                    </h3>
                                 </div>
                             </div>
                         ))}
