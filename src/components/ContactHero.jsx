@@ -40,7 +40,7 @@ export default function ContactHero() {
         </p>
 
         <form
-          action="https://formsubmit.co/integrityconsultancy01@gmail.com"
+          action="https://formsubmit.co/info@integrityimpex.com"
           method="POST"
           className="w-full max-w-5xl mx-auto"
         >
