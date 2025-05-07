@@ -8,7 +8,7 @@ export default function ContactHero() {
     name: "",
     email: "",
     mobile: "",
-    location: "",
+    Message: "",
   })
 
   const handleChange = (e) => {
@@ -83,11 +83,11 @@ export default function ContactHero() {
             />
             <input
               type="text"
-              name="location"
-              placeholder="Location"
+              name="Message"
+              placeholder="Message"
               required
               onChange={handleChange}
-              value={formData.location}
+              value={formData.Message}
               className="flex-1 min-w-[200px] px-4 py-2 rounded bg-transparent border-[1px] text-[#918C8C] placeholder-[#918C8C] focus:outline-none focus:ring-1 focus:ring-white"
             />
 
