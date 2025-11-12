@@ -14,6 +14,7 @@
     <!-- Favicon (Use WebP for faster load) -->
     <link rel="icon" href="/favicon.webp" type="image/webp" />
     <link rel="apple-touch-icon" href="/apple-icon.webp" />
+    <link rel="canonical" href="https://yourdomain.com" />
   
     <!-- Open Graph for Facebook/LinkedIn -->
     <meta property="og:title" content="Integrity Impex - Furniture Outsourcing Experts" />
@@ -30,11 +31,38 @@
     <meta name="twitter:creator" content="@inferoinfotech" />
   
     <!-- Performance Improvements -->
-    <link rel="preload" href="/fonts/inter.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <meta http-equiv="Cache-Control" content="max-age=31536000, public" />
-    <meta http-equiv="Expires" content="31536000" />
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+    
+    <!-- Security Headers -->
+    <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+    <meta http-equiv="X-Frame-Options" content="DENY" />
+    <meta http-equiv="X-XSS-Protection" content="1; mode=block" />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+    
+    <!-- Structured Data for SEO -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Integrity Impex",
+      "description": "Outsourcing high-quality furniture globally. Delivering excellence in export, design, and craftsmanship.",
+      "url": "https://yourdomain.com",
+      "logo": "https://yourdomain.com/Integrity%20Impex.png",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "email": "info@integrityimpex.com",
+        "contactType": "Customer Service"
+      },
+      "sameAs": [
+        "https://www.facebook.com/integrityimpex",
+        "https://www.pinterest.com/integrityimpex",
+        "https://www.instagram.com/integrityimpex"
+      ]
+    }
+    </script>
+    
     <title>Integrity Impex – Global Furniture Outsourcing Partner</title>
   
   </head>
