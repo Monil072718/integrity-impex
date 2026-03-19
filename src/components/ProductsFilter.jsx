@@ -4,7 +4,7 @@ import clsx from "clsx";
 // Import all images using Vite's glob import
 const productImages = import.meta.glob('../assets/*.webp', { eager: true });
 
-const categories = ["Sofa", "Chair", "Dining", "Lighting", "Decoration"];
+const categories = ["Sofa", "Chair", "Dining", "Lighting", "Decoration", "Office Furniture", "Artifacts", "Bed"];
 
 const products = [
     // Sofas
