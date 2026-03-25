@@ -4,22 +4,29 @@ import { useState, useRef } from "react"
 import { Menu } from "lucide-react"
 import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
+import { useNavigate, useLocation } from "react-router-dom"
 import logo from "../assets/Integrity Impex.png"
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const navigate = useNavigate()
+  const location = useLocation()
 
   // Scroll handler with offset for fixed header
   const scrollToSection = (sectionId) => {
-    const section = document.getElementById(sectionId)
-    if (section) {
-      const headerHeight = document.querySelector('header')?.offsetHeight || 0
-      const offsetPosition = section.offsetTop - headerHeight
+    if (location.pathname !== '/') {
+      navigate('/', { state: { scrollTo: sectionId } })
+    } else {
+      const section = document.getElementById(sectionId)
+      if (section) {
+        const headerHeight = document.querySelector('header')?.offsetHeight || 0
+        const offsetPosition = section.offsetTop - headerHeight
 
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: "smooth"
-      })
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: "smooth"
+        })
+      }
     }
     setIsMenuOpen(false)
   }

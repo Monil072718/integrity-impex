@@ -2,7 +2,7 @@ import logo from "../assets/Integrity Impex.png";
 
 const Footer = () => {
   return (
-    <footer className="bg-[#252e32] text-white text-sm" id="contact">
+    <footer className="bg-[#252e32] text-white text-sm">
       <div className="max-w-7xl mx-auto py-12 px-6">
         <div className="flex flex-col items-center text-center space-y-4">
           <img

@@ -1,41 +1,8 @@
 import { useState, useMemo } from "react";
 import clsx from "clsx";
 
-// Import all images using Vite's glob import
-const productImages = import.meta.glob('../assets/*.webp', { eager: true });
-
-const categories = ["Sofa", "Chair", "Dining", "Lighting", "Decoration", "Office Furniture", "Artifacts", "Bed"];
-
-const products = [
-    // Sofas
-    { id: 1, category: "Sofa", img: productImages['../assets/sofa1.webp'].default, name: "Modern Sofa" },
-    { id: 2, category: "Sofa", img: productImages['../assets/sofa2.webp'].default, name: "Leather Sofa" },
-    { id: 3, category: "Sofa", img: productImages['../assets/sofa3.webp'].default, name: "Sectional Sofa" },
-    
-    // Chairs
-    { id: 4, category: "Chair", img: productImages['../assets/char1.webp'].default, name: "Armchair" },
-    { id: 5, category: "Chair", img: productImages['../assets/char2.webp'].default, name: "Dining Chair" },
-    { id: 6, category: "Chair", img: productImages['../assets/char3.webp'].default, name: "Accent Chair" },
-    { id: 7, category: "Chair", img: productImages['../assets/char4.webp'].default, name: "Office Chair" },
-    
-    // Dining Tables
-    { id: 8, category: "Dining", img: productImages['../assets/table1.webp'].default, name: "Wooden Table" },
-    { id: 9, category: "Dining", img: productImages['../assets/table2.webp'].default, name: "Glass Table" },
-    { id: 10, category: "Dining", img: productImages['../assets/table3.webp'].default, name: "Extendable Table" },
-    { id: 11, category: "Dining", img: productImages['../assets/table4.webp'].default, name: "Round Table" },
-    { id: 12, category: "Dining", img: productImages['../assets/table5.webp'].default, name: "Outdoor Table" },
-    
-    // Lighting
-    { id: 13, category: "Lighting", img: productImages['../assets/light1.webp'].default, name: "Pendant Light" },
-    { id: 14, category: "Lighting", img: productImages['../assets/light2.webp'].default, name: "Floor Lamp" },
-    { id: 15, category: "Lighting", img: productImages['../assets/light3.webp'].default, name: "Table Lamp" },
-    { id: 16, category: "Lighting", img: productImages['../assets/light4.webp'].default, name: "Chandelier" },
-    { id: 17, category: "Lighting", img: productImages['../assets/light5.webp'].default, name: "Wall Sconce" },
-    
-    // Decoration
-    { id: 18, category: "Decoration", img: productImages['../assets/decor1.webp'].default, name: "Vase Set" },
-    { id: 19, category: "Decoration", img: productImages['../assets/decor2.webp'].default, name: "Wall Art" },
-];
+import { Link } from 'react-router-dom';
+import { categories, products } from '../data/products';
 
 const ProductsFilter = () => {
     const [selectedCategory, setSelectedCategory] = useState("Sofa");
@@ -80,9 +47,10 @@ const ProductsFilter = () => {
                 ) : (
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
                         {filteredProducts.map((product) => (
-                            <div
+                            <Link
+                                to={`/product/${product.id}`}
                                 key={product.id}
-                                className="rounded-lg overflow-hidden group cursor-pointer transition-all duration-200 hover:shadow-lg bg-white"
+                                className="block rounded-lg overflow-hidden group cursor-pointer transition-all duration-200 hover:shadow-lg bg-white"
                             >
                                 <div className="relative aspect-square">
                                     <img
@@ -99,7 +67,7 @@ const ProductsFilter = () => {
                                         {product.name}
                                     </h3>
                                 </div>
-                            </div>
+                            </Link>
                         ))}
                     </div>
                 )}
