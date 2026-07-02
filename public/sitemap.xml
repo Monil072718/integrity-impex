@@ -1,40 +1,46 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
   <url>
-    <loc>http://integrityimpex.com/</loc>
-    <lastmod>2024-01-01</lastmod>
+    <loc>https://integrityimpex.com/</loc>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
+
   <url>
-    <loc>http://integrityimpex.com/#home</loc>
-    <lastmod>2024-01-01</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
-  </url>
-  <url>
-    <loc>http://integrityimpex.com/#service</loc>
-    <lastmod>2024-01-01</lastmod>
+    <loc>https://integrityimpex.com/about-us</loc>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
+
   <url>
-    <loc>http://integrityimpex.com/#products</loc>
-    <lastmod>2024-01-01</lastmod>
+    <loc>https://integrityimpex.com/products</loc>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
+
   <url>
-    <loc>http://integrityimpex.com/#blog</loc>
-    <lastmod>2024-01-01</lastmod>
-    <changefreq>weekly</changefreq>
+    <loc>https://integrityimpex.com/services</loc>
+    <lastmod>2026-07-02</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
+
   <url>
-    <loc>http://integrityimpex.com/#contact</loc>
-    <lastmod>2024-01-01</lastmod>
+    <loc>https://integrityimpex.com/blog</loc>
+    <lastmod>2026-07-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://integrityimpex.com/contact-us</loc>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-</urlset>
 
+</urlset>
