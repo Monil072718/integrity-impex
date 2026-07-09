@@ -1,9 +1,39 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 const ContactSection = () => {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [showPopup, setShowPopup] = useState(false);
+  const [popupMessage, setPopupMessage] = useState("");
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const form = e.target;
+    setIsSubmitting(true);
+    
+    fetch("https://formsubmit.co/ajax/nakranimonil18@gmail.com", {
+      method: "POST",
+      body: new FormData(form)
+    })
+    .then(response => response.json())
+    .then(data => {
+      setPopupMessage("Your message has been sent successfully. We will get back to you soon!");
+      setShowPopup(true);
+      form.reset();
+    })
+    .catch(error => {
+      console.error("Error submitting form:", error);
+      setPopupMessage("There was an error sending your message. Please try again later.");
+      setShowPopup(true);
+    })
+    .finally(() => {
+      setIsSubmitting(false);
+    });
+  };
+
   return (
-    <section id="contact" className="bg-[#fefae0] py-16 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-7xl mx-auto">
+    <>
+      <section id="contact" className="bg-[#fefae0] py-16 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto">
         <div className="text-center mb-12">
           <h2 className="text-3xl sm:text-4xl font-semibold text-[#6c584c] mb-4 uppercase">GET IN TOUCH</h2>
           <p className="text-gray-600 max-w-2xl mx-auto text-lg">
@@ -69,7 +99,7 @@ const ContactSection = () => {
           {/* Contact Form */}
           <div className="md:col-span-3 bg-white rounded-2xl shadow-lg p-8">
             <h3 className="text-2xl font-semibold text-[#6c584c] mb-6">Send a Message</h3>
-            <form action="https://formsubmit.co/nakranimonil18@gmail.com" method="POST" className="space-y-5">
+            <form onSubmit={handleSubmit} action="https://formsubmit.co/nakranimonil18@gmail.com" method="POST" className="space-y-5">
               <input type="hidden" name="_captcha" value="false" />
               <input type="hidden" name="_template" value="table" />
               <input type="hidden" name="_autoresponse" value="Thank you for contacting us! We'll get back to you shortly." />
@@ -100,14 +130,55 @@ const ContactSection = () => {
                 <textarea name="message" rows="5" required className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg focus:bg-white focus:ring-2 focus:ring-[#6c584c] focus:border-transparent outline-none transition-all duration-200 resize-none" placeholder="Your message here..."></textarea>
               </div>
               
-              <button type="submit" className="w-full bg-[#6c584c] hover:bg-[#5b4a40] text-white font-medium py-3.5 px-4 rounded-lg shadow-md transition-colors duration-200 mt-2 text-lg">
-                Send Message
+              <button type="submit" disabled={isSubmitting} className="w-full bg-[#6c584c] hover:bg-[#5b4a40] disabled:bg-[#a48e7f] disabled:cursor-not-allowed text-white font-medium py-3.5 px-4 rounded-lg shadow-md transition-colors duration-200 mt-2 text-lg flex items-center justify-center">
+                {isSubmitting ? (
+                  <>
+                    <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                      <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                      <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                    </svg>
+                    Sending...
+                  </>
+                ) : (
+                  'Send Message'
+                )}
               </button>
             </form>
           </div>
         </div>
       </div>
     </section>
+
+      {/* Custom Popup Modal */}
+      {showPopup && (
+        <div className="fixed inset-0 flex items-center justify-center z-50 px-4">
+          <div className="absolute inset-0 bg-black bg-opacity-40 backdrop-blur-sm" onClick={() => setShowPopup(false)}></div>
+          <div className="bg-white rounded-2xl shadow-2xl p-8 max-w-sm w-full relative z-10 transform transition-all border border-[#d4a373]/30">
+            <div className="text-center">
+              <div className={`mx-auto flex items-center justify-center h-16 w-16 rounded-full mb-6 ${popupMessage.includes('error') ? 'bg-red-100 text-red-600' : 'bg-[#d4a373] bg-opacity-20 text-[#6c584c]'}`}>
+                {popupMessage.includes('error') ? (
+                  <svg className="h-8 w-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"></path>
+                  </svg>
+                ) : (
+                  <svg className="h-8 w-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                )}
+              </div>
+              <h3 className="text-2xl font-semibold text-[#6c584c] mb-2">{popupMessage.includes('error') ? 'Oops!' : 'Thank You!'}</h3>
+              <p className="text-gray-600 mb-8 leading-relaxed">{popupMessage}</p>
+              <button 
+                onClick={() => setShowPopup(false)}
+                className="w-full bg-[#6c584c] hover:bg-[#5b4a40] text-white font-medium py-3 px-4 rounded-lg shadow-md transition-colors duration-200"
+              >
+                Close
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+    </>
   );
 };
 
