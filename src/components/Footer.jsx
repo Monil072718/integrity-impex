@@ -1,4 +1,5 @@
 import logo from "../assets/Integrity Impex.png";
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
   return (
@@ -31,7 +32,7 @@ const Footer = () => {
           <div>
             <h4 className="text-lg font-semibold mb-4">Company</h4>
             <ul className="space-y-2">
-              <li><a href="#" className="hover:underline">Home</a></li>
+              <li><Link to="/" className="hover:underline">Home</Link></li>
               <li><a href="#" className="hover:underline">About</a></li>
               <li><a href="#" className="hover:underline">Blogs</a></li>
               <li><a href="#" className="hover:underline">Contact</a></li>
@@ -39,11 +40,10 @@ const Footer = () => {
           </div>
 
           <div>
-            <h4 className="text-lg font-semibold mb-4">Our Creation</h4>
+            <h4 className="text-lg font-semibold mb-4">Legal</h4>
             <ul className="space-y-2">
-              <li><a href="#" className="hover:underline">Furniture</a></li>
-              <li><a href="#" className="hover:underline">Lighting</a></li>
-              <li><a href="#" className="hover:underline">Decorative</a></li>
+              <li><Link to="/privacy-policy" className="hover:underline">Privacy Policy</Link></li>
+              <li><Link to="/terms-of-service" className="hover:underline">Terms of Service</Link></li>
             </ul>
           </div>
 
