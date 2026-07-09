@@ -26,9 +26,8 @@ const ContactSection = () => {
                 <div>
                   <h4 className="font-medium text-[#6c584c] text-lg">Office Address</h4>
                   <p className="text-gray-600 mt-1 leading-relaxed">
-                    123 Furniture Avenue,<br />
-                    Design District,<br />
-                    NY 10001
+                    461, Laxmi Enclave 2, Opp. Gajera School,<br />
+                    Katargam, Surat. 395004
                   </p>
                 </div>
               </div>
@@ -42,8 +41,8 @@ const ContactSection = () => {
                 <div>
                   <h4 className="font-medium text-[#6c584c] text-lg">Email Us</h4>
                   <p className="text-gray-600 mt-1">
-                    <a href="mailto:info@integrityimpex.com" className="hover:text-[#d4a373] transition-colors">
-                      info@integrityimpex.com
+                    <a href="mailto:nakranimonil18@gmail.com" className="hover:text-[#d4a373] transition-colors">
+                      nakranimonil18@gmail.com
                     </a>
                   </p>
                 </div>
@@ -58,8 +57,8 @@ const ContactSection = () => {
                 <div>
                   <h4 className="font-medium text-[#6c584c] text-lg">Call Us</h4>
                   <p className="text-gray-600 mt-1">
-                    <a href="tel:+15551234567" className="hover:text-[#d4a373] transition-colors">
-                      +1 (555) 123-4567
+                    <a href="tel:+919974606135" className="hover:text-[#d4a373] transition-colors">
+                      +91 9974606135 / +91 98982 29152
                     </a>
                   </p>
                 </div>
@@ -70,7 +69,7 @@ const ContactSection = () => {
           {/* Contact Form */}
           <div className="md:col-span-3 bg-white rounded-2xl shadow-lg p-8">
             <h3 className="text-2xl font-semibold text-[#6c584c] mb-6">Send a Message</h3>
-            <form action="https://formsubmit.co/info@integrityimpex.com" method="POST" className="space-y-5">
+            <form action="https://formsubmit.co/nakranimonil18@gmail.com" method="POST" className="space-y-5">
               <input type="hidden" name="_captcha" value="false" />
               <input type="hidden" name="_template" value="table" />
               <input type="hidden" name="_autoresponse" value="Thank you for contacting us! We'll get back to you shortly." />
