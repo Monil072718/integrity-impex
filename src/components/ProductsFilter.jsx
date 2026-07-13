@@ -6,12 +6,21 @@ import { categories, products } from '../data/products';
 
 const ProductsFilter = () => {
     const [selectedCategory, setSelectedCategory] = useState("Sofa");
+    const [visibleCount, setVisibleCount] = useState(6);
+
+    const handleCategoryChange = (category) => {
+        setSelectedCategory(category);
+        setVisibleCount(6);
+    };
 
     const filteredProducts = useMemo(() => (
         products.filter(product => (
             product.category.toLowerCase() === selectedCategory.toLowerCase()
         ))
     ), [selectedCategory]);
+
+    const displayedProducts = filteredProducts.slice(0, visibleCount);
+    const hasMore = visibleCount < filteredProducts.length;
 
     return (
         <div className="px-4 py-8 sm:px-6 sm:py-10 bg-[#fefae0] min-h-screen" id="products">
@@ -24,7 +33,7 @@ const ProductsFilter = () => {
                 {categories.map((category) => (
                     <button
                         key={category}
-                        onClick={() => setSelectedCategory(category)}
+                        onClick={() => handleCategoryChange(category)}
                         className={clsx(
                             "uppercase text-xs sm:text-sm font-medium px-3 sm:px-4 py-1 rounded-full transition-colors duration-200",
                             selectedCategory.toLowerCase() === category.toLowerCase()
@@ -45,31 +54,43 @@ const ProductsFilter = () => {
                         No products found in this category
                     </div>
                 ) : (
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
-                        {filteredProducts.map((product) => (
-                            <Link
-                                to={`/product/${product.id}`}
-                                key={product.id}
-                                className="block rounded-lg overflow-hidden group cursor-pointer transition-all duration-200 hover:shadow-lg bg-white"
-                            >
-                                <div className="relative aspect-square">
-                                    <img
-                                        src={product.img}
-                                        alt={product.name}
-                                        loading="lazy"
-                                        className="absolute top-0 left-0 w-full h-full object-cover group-hover:brightness-90 transition-all duration-200"
-                                        width={400}
-                                        height={400}
-                                    />
-                                </div>
-                                <div className="p-3 sm:p-4">
-                                    <h3 className="text-base sm:text-lg font-medium text-[#6c584c]">
-                                        {product.name}
-                                    </h3>
-                                </div>
-                            </Link>
-                        ))}
-                    </div>
+                    <>
+                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+                            {displayedProducts.map((product) => (
+                                <Link
+                                    to={`/product/${product.id}`}
+                                    key={product.id}
+                                    className="block rounded-lg overflow-hidden group cursor-pointer transition-all duration-200 hover:shadow-lg bg-white"
+                                >
+                                    <div className="relative aspect-square">
+                                        <img
+                                            src={product.img}
+                                            alt={product.name}
+                                            loading="lazy"
+                                            className="absolute top-0 left-0 w-full h-full object-cover group-hover:brightness-90 transition-all duration-200"
+                                            width={400}
+                                            height={400}
+                                        />
+                                    </div>
+                                    <div className="p-3 sm:p-4">
+                                        <h3 className="text-base sm:text-lg font-medium text-[#6c584c]">
+                                            {product.name}
+                                        </h3>
+                                    </div>
+                                </Link>
+                            ))}
+                        </div>
+                        {hasMore && (
+                            <div className="mt-10 flex justify-center">
+                                <button
+                                    onClick={() => setVisibleCount(prev => prev + 6)}
+                                    className="px-6 py-2 sm:px-8 sm:py-3 bg-[#6c584c] text-white rounded-full font-medium transition-colors hover:bg-[#58463c] shadow-md hover:shadow-lg"
+                                >
+                                    Show More
+                                </button>
+                            </div>
+                        )}
+                    </>
                 )}
             </div>
         </div>

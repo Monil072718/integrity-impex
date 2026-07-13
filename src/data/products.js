@@ -1,5 +1,5 @@
 // Import all images using Vite's glob import
-const productImages = import.meta.glob('../assets/*.webp', { eager: true });
+const productImages = import.meta.glob('../assets/*.{webp,png,jpg,jpeg}', { eager: true });
 
 export const categories = ["Sofa", "Chair", "Dining", "Lighting", "Decoration", "Office Furniture", "Artifacts", "Bed"];
 
@@ -32,4 +32,19 @@ export const products = [
     // Decoration
     { id: 18, category: "Decoration", img: productImages['../assets/decor1.webp']?.default || productImages['../assets/decor1.webp'], name: "Vase Set", description: "Decorative ceramic vases." },
     { id: 19, category: "Decoration", img: productImages['../assets/decor2.webp']?.default || productImages['../assets/decor2.webp'], name: "Wall Art", description: "Contemporary abstract wall art." },
+    
+    // Beds
+    { id: 20, category: "Bed", img: productImages['../assets/bed-1.png']?.default || productImages['../assets/bed-1.png'], name: "Premium Bed 1", description: "Luxurious comfort for your bedroom." },
+    { id: 21, category: "Bed", img: productImages['../assets/bed-2.png']?.default || productImages['../assets/bed-2.png'], name: "Premium Bed 2", description: "Luxurious comfort for your bedroom." },
+    { id: 22, category: "Bed", img: productImages['../assets/bed-3.png']?.default || productImages['../assets/bed-3.png'], name: "Premium Bed 3", description: "Luxurious comfort for your bedroom." },
+    { id: 23, category: "Bed", img: productImages['../assets/bed-4.png']?.default || productImages['../assets/bed-4.png'], name: "Premium Bed 4", description: "Luxurious comfort for your bedroom." },
+    { id: 24, category: "Bed", img: productImages['../assets/bed-5.png']?.default || productImages['../assets/bed-5.png'], name: "Premium Bed 5", description: "Luxurious comfort for your bedroom." },
+    { id: 25, category: "Bed", img: productImages['../assets/bed-6.png']?.default || productImages['../assets/bed-6.png'], name: "Premium Bed 6", description: "Luxurious comfort for your bedroom." },
+    { id: 26, category: "Bed", img: productImages['../assets/bed-7.png']?.default || productImages['../assets/bed-7.png'], name: "Premium Bed 7", description: "Luxurious comfort for your bedroom." },
+    { id: 27, category: "Bed", img: productImages['../assets/bed-8.png']?.default || productImages['../assets/bed-8.png'], name: "Premium Bed 8", description: "Luxurious comfort for your bedroom." },
+    { id: 28, category: "Bed", img: productImages['../assets/bed-9.png']?.default || productImages['../assets/bed-9.png'], name: "Premium Bed 9", description: "Luxurious comfort for your bedroom." },
+    { id: 29, category: "Bed", img: productImages['../assets/bed-10.png']?.default || productImages['../assets/bed-10.png'], name: "Premium Bed 10", description: "Luxurious comfort for your bedroom." },
+    { id: 30, category: "Bed", img: productImages['../assets/bed-11.png']?.default || productImages['../assets/bed-11.png'], name: "Premium Bed 11", description: "Luxurious comfort for your bedroom." },
+    { id: 31, category: "Bed", img: productImages['../assets/bed-12.png']?.default || productImages['../assets/bed-12.png'], name: "Premium Bed 12", description: "Luxurious comfort for your bedroom." },
+    { id: 32, category: "Bed", img: productImages['../assets/bed-13.png']?.default || productImages['../assets/bed-13.png'], name: "Premium Bed 13", description: "Luxurious comfort for your bedroom." },
 ];
